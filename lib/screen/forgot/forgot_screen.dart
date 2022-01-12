@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pelindo_travel/app_color.dart';
 import 'package:pelindo_travel/size_config.dart';
 
 class ForgotScreen extends StatefulWidget {
@@ -135,22 +136,22 @@ class _ForgotScreenState extends State<ForgotScreen> {
             Spacer(),
             TextButton(
               onPressed: () {
-                Navigator.pushReplacementNamed(context, '/kode-verifikasi');
+                Navigator.pushNamed(context, '/kode-verifikasi');
               },
               child: Container(
                 height: 45,
                 width: 168,
                 decoration: BoxDecoration(
-                  // color: Colors.blue,
+                  color: colorPrimary,
                   borderRadius: BorderRadius.circular(25),
-                  gradient: RadialGradient(
-                    center: Alignment.topCenter,
-                    radius: 45,
-                    colors: [
-                      Color(0xff38AFF2),
-                      Color(0xff0ACDDA),
-                    ],
-                  ),
+                  // gradient: RadialGradient(
+                  //   center: Alignment.topCenter,
+                  //   radius: 45,
+                  //   colors: [
+                  //     Color(0xff38AFF2),
+                  //     Color(0xff0ACDDA),
+                  //   ],
+                  // ),
                 ),
                 child: Center(
                   child: Text(

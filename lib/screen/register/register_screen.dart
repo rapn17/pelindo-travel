@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pelindo_travel/app_color.dart';
 import 'package:pelindo_travel/size_config.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -240,42 +241,55 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 padding: EdgeInsets.only(left: getProportionateScreenWidth(15)),
                 child: Row(
                   children: [
-                    Checkbox(
-                      value: isChecked,
-                      onChanged: (value) {
-                        setState(() {
-                          isChecked = !isChecked;
-                        });
-                      },
-                    ),
                     Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          padding: EdgeInsets.only(right: 23),
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            'Dengan mendaftar berarti Anda menyetujui',
-                            style: TextStyle(
-                              color: Color(0xff324A59),
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'Poppins',
-                            ),
+                        Transform.scale(
+                          scale: 0.8,
+                          child: Checkbox(
+                            value: isChecked,
+                            onChanged: (value) {
+                              setState(() {
+                                isChecked = !isChecked;
+                              });
+                            },
                           ),
                         ),
-                        Row(
-                          children: [
-                            InkWell(onTap: () {}, child: Text(
-                                'syarat dan ketentuan',
-                                style: TextStyle(
-                                  color: Colors.red,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: 'Poppins',
+                        SizedBox(height: 15),
+                      ],
+                    ),
+                    Transform.translate(
+                      offset: Offset(-8,0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.only(right: 23),
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              'Dengan mendaftar berarti Anda menyetujui',
+                              style: TextStyle(
+                                color: Color(0xff324A59),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Poppins',
+                              ),
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              InkWell(
+                                onTap: () {},
+                                child: Text(
+                                  'syarat dan ketentuan',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: 'Poppins',
+                                  ),
                                 ),
-                              ),),
-                            Text(
+                              ),
+                              Text(
                                 ' yang berlaku.',
                                 style: TextStyle(
                                   color: Color(0xff324A59),
@@ -284,9 +298,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   fontFamily: 'Poppins',
                                 ),
                               ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -298,16 +313,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   height: 45,
                   width: 168,
                   decoration: BoxDecoration(
-                    // color: Colors.blue,
+                    color: colorPrimary,
                     borderRadius: BorderRadius.circular(25),
-                    gradient: RadialGradient(
-                      center: Alignment.topCenter,
-                      radius: 45,
-                      colors: [
-                        Color(0xff38AFF2),
-                        Color(0xff0ACDDA),
-                      ],
-                    ),
+                    // gradient: RadialGradient(
+                    //   center: Alignment.topCenter,
+                    //   radius: 45,
+                    //   colors: [
+                    //     Color(0xff38AFF2),
+                    //     Color(0xff0ACDDA),
+                    //   ],
+                    // ),
                   ),
                   child: Center(
                     child: Text(

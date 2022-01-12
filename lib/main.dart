@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pelindo_travel/app_route.dart';
 
 void main() {
@@ -21,11 +22,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pelindo Travel',
+      initialRoute: initialRoute,
+      onGenerateRoute: appRoute,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: initialRoute,
-      onGenerateRoute: appRoute,
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate
+      ],
+      supportedLocales: [
+        const Locale('en'),
+        const Locale('id'),
+      ],
     );
   }
 }

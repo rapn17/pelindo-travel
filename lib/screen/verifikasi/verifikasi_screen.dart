@@ -9,6 +9,7 @@ class VerifikasiScreen extends StatefulWidget {
 }
 
 class _VerifikasiScreenState extends State<VerifikasiScreen> {
+  // FocusNode? pin1FocusNode;
   FocusNode? pin2FocusNode;
   FocusNode? pin3FocusNode;
   FocusNode? pin4FocusNode;
@@ -16,6 +17,7 @@ class _VerifikasiScreenState extends State<VerifikasiScreen> {
   @override
   void initState() {
     super.initState();
+    // pin1FocusNode = FocusNode();
     pin2FocusNode = FocusNode();
     pin3FocusNode = FocusNode();
     pin4FocusNode = FocusNode();
@@ -24,15 +26,14 @@ class _VerifikasiScreenState extends State<VerifikasiScreen> {
   @override
   void dispose() {
     super.dispose();
+    // pin1FocusNode!.dispose();
     pin2FocusNode!.dispose();
     pin3FocusNode!.dispose();
     pin4FocusNode!.dispose();
   }
 
-  void nextField(String value, FocusNode? focusNode) {
-    if (value.length != '') {
+  void focusField(String value, FocusNode? focusNode) {
       focusNode!.requestFocus();
-    }
   }
 
   @override
@@ -109,6 +110,7 @@ class _VerifikasiScreenState extends State<VerifikasiScreen> {
                         width: getProportionateScreenWidth(50),
                         child: TextFormField(
                           autofocus: true,
+                          // focusNode: pin1FocusNode,
                           // obscureText: true,
                           style: TextStyle(fontSize: 24),
                           keyboardType: TextInputType.number,
@@ -121,8 +123,11 @@ class _VerifikasiScreenState extends State<VerifikasiScreen> {
                               borderSide: BorderSide.none,
                             ),
                           ),
+                          // maxLength: 1,
                           onChanged: (value) {
-                            nextField(value, pin2FocusNode);
+                            if (value != '') {
+                            focusField(value, pin2FocusNode);
+                            }
                           },
                         ),
                       ),
@@ -148,8 +153,11 @@ class _VerifikasiScreenState extends State<VerifikasiScreen> {
                               borderSide: BorderSide.none,
                             ),
                           ),
+                          // maxLength: 1,
                           onChanged: (value) {
-                            nextField(value, pin3FocusNode);
+                            if (value != '') {
+                            focusField(value, pin3FocusNode);
+                            }
                           },
                         ),
                       ),
@@ -175,8 +183,11 @@ class _VerifikasiScreenState extends State<VerifikasiScreen> {
                               borderSide: BorderSide.none,
                             ),
                           ),
+                          // maxLength: 1,
                           onChanged: (value) {
-                            nextField(value, pin4FocusNode);
+                            if (value != '') {
+                            focusField(value, pin4FocusNode);
+                            }
                           },
                         ),
                       ),
@@ -202,9 +213,12 @@ class _VerifikasiScreenState extends State<VerifikasiScreen> {
                               borderSide: BorderSide.none,
                             ),
                           ),
+                          // maxLength: 1,
                           onChanged: (value) {
+                            if (value != '') {
                             pin4FocusNode!.unfocus();
                             // Then you need to check is the code is correct or not
+                            }
                           },
                         ),
                       ),

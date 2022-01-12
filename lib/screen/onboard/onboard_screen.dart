@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pelindo_travel/app_color.dart';
 import 'package:pelindo_travel/screen/onboard/component/splash_content.dart';
 
 class OnBoardScreen extends StatefulWidget {
@@ -112,7 +113,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                               width: 100,
                               height: 40,
                               decoration: BoxDecoration(
-                                color: Color(0xff42BAFF),
+                                color: colorPrimary,
                                 border: Border.all(
                                     color: Color(0xff191D21), width: 0.72),
                                 borderRadius: BorderRadius.circular(4),

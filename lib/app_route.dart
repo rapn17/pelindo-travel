@@ -4,6 +4,8 @@ import 'package:pelindo_travel/screen/home/home_screen.dart';
 import 'package:pelindo_travel/screen/jenis_kapal/jenis_kapal_screen.dart';
 import 'package:pelindo_travel/screen/login/login_screen.dart';
 import 'package:pelindo_travel/screen/onboard/onboard_screen.dart';
+import 'package:pelindo_travel/screen/otp/otp_screen.dart';
+import 'package:pelindo_travel/screen/pemesanan/pemesanan_screen.dart';
 import 'package:pelindo_travel/screen/register/register_screen.dart';
 import 'package:pelindo_travel/screen/verifikasi/verifikasi_screen.dart';
 
@@ -43,7 +45,7 @@ Route<dynamic>? appRoute(RouteSettings settings) {
       return MaterialPageRoute(
         settings: settings,
         builder: (context) {
-          return const VerifikasiScreen();
+          return const OtpScreen();
         },
       );
     case '/daftar':
@@ -58,6 +60,14 @@ Route<dynamic>? appRoute(RouteSettings settings) {
         settings: settings,
         builder: (context) {
           return const JenisKapalScreen();
+        },
+      );
+    case '/pemesanan':
+      return MaterialPageRoute(
+        settings: settings,
+        builder: (context) {
+          final args = settings.arguments as PemesananScreen;
+          return PemesananScreen(namaKapal: args.namaKapal);
         },
       );
     default:

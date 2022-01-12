@@ -5,6 +5,7 @@ import 'package:pelindo_travel/screen/jenis_kapal/component/kapal_pelni_modal.da
 import 'package:pelindo_travel/screen/jenis_kapal/component/kendaraan_modal.dart';
 import 'package:pelindo_travel/screen/jenis_kapal/component/orange_dropdown_button.dart';
 import 'package:pelindo_travel/screen/jenis_kapal/component/pesan_button.dart';
+import 'package:pelindo_travel/screen/pemesanan/pemesanan_screen.dart';
 import 'package:pelindo_travel/size_config.dart';
 
 class JenisKapalScreen extends StatefulWidget {
@@ -186,7 +187,13 @@ class _JenisKapalScreenState extends State<JenisKapalScreen> {
                                 ),
                                 PesanButton(
                                   onPress: () {
-                                    Navigator.pushNamed(context, '/login');
+                                    Navigator.pushNamed(
+                                      context,
+                                      '/pemesanan',
+                                      arguments: PemesananScreen(
+                                          namaKapal:
+                                              'Kapal PELNI (KM. DOROLONGGA)'),
+                                    );
                                   },
                                 ),
                               ],
@@ -321,7 +328,13 @@ class _JenisKapalScreenState extends State<JenisKapalScreen> {
                                   flex: 1,
                                   child: PesanButton(
                                     onPress: () {
-                                      Navigator.pushNamed(context, '/login');
+                                      Navigator.pushNamed(
+                                        context,
+                                        '/pemesanan',
+                                        arguments: PemesananScreen(
+                                            namaKapal:
+                                                'Kapal PELNI (KM. DOROLONGGA)'),
+                                      );
                                     },
                                   ),
                                 ),

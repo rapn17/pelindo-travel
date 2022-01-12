@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pelindo_travel/app_color.dart';
 import 'package:pelindo_travel/size_config.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -166,21 +167,23 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Spacer(),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/pemesanan');
+                },
                 child: Container(
                   height: 45,
                   width: 168,
                   decoration: BoxDecoration(
-                    // color: Colors.blue,
+                    color: colorPrimary,
                     borderRadius: BorderRadius.circular(25),
-                    gradient: RadialGradient(
-                      center: Alignment.topCenter,
-                      radius: 45,
-                      colors: [
-                        Color(0xff38AFF2),
-                        Color(0xff0ACDDA),
-                      ],
-                    ),
+                    // gradient: RadialGradient(
+                    //   center: Alignment.topCenter,
+                    //   radius: 45,
+                    //   colors: [
+                    //     Color(0xff38AFF2),
+                    //     Color(0xff0ACDDA),
+                    //   ],
+                    // ),
                   ),
                   child: Center(
                     child: Text(
