@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:pelindo_travel/screen/data_penumpang/component/form_data_penumpang.dart';
+import 'package:pelindo_travel/screen/data_penumpang/input_penumpang_screen.dart';
 import 'package:pelindo_travel/screen/forgot/forgot_screen.dart';
 import 'package:pelindo_travel/screen/home/home_screen.dart';
 import 'package:pelindo_travel/screen/jenis_kapal/jenis_kapal_screen.dart';
 import 'package:pelindo_travel/screen/login/login_screen.dart';
 import 'package:pelindo_travel/screen/onboard/onboard_screen.dart';
 import 'package:pelindo_travel/screen/otp/otp_screen.dart';
+import 'package:pelindo_travel/screen/pembayaran/pembayaran_screen.dart';
 import 'package:pelindo_travel/screen/pemesanan/pemesanan_screen.dart';
+import 'package:pelindo_travel/screen/profil/profil_screen.dart';
 import 'package:pelindo_travel/screen/register/register_screen.dart';
-import 'package:pelindo_travel/screen/verifikasi/verifikasi_screen.dart';
+import 'package:pelindo_travel/screen/riwayat/riwayat_screen.dart';
 
 String initialRoute = '/';
 
@@ -68,6 +72,43 @@ Route<dynamic>? appRoute(RouteSettings settings) {
         builder: (context) {
           final args = settings.arguments as PemesananScreen;
           return PemesananScreen(namaKapal: args.namaKapal);
+        },
+      );
+    case '/input-penumpang':
+      return MaterialPageRoute(
+        settings: settings,
+        builder: (context) {
+          final args = settings.arguments as InputPenumpangScreen;
+          return InputPenumpangScreen();
+        },
+      );
+    case '/pembayaran':
+      return MaterialPageRoute(
+        settings: settings,
+        builder: (context) {
+          return PembayaranScreen();
+        },
+      );
+    case '/riwayat':
+      return MaterialPageRoute(
+        settings: settings,
+        builder: (context) {
+          return const RiwayatScreen();
+        },
+      );
+    case '/profil':
+      return MaterialPageRoute(
+        settings: settings,
+        builder: (context) {
+          return const ProfilScreen();
+        },
+      );
+    case '/form-input-penumpang':
+      return MaterialPageRoute(
+        settings: settings,
+        builder: (context) {
+          final args = settings.arguments as FormINputDataPenumpang;
+          return FormINputDataPenumpang(isDewasa: args.isDewasa,);
         },
       );
     default:

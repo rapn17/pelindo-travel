@@ -507,7 +507,7 @@ class _PemesananScreenState extends State<PemesananScreen> {
                   right: getProportionateScreenWidth(43), bottom: 20),
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/login');
+                  Navigator.pushNamed(context, '/input-penumpang');
                 },
                 child: Container(
                   height: 50,

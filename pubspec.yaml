@@ -36,6 +36,7 @@ dependencies:
   flutter_svg: ^0.22.0
   intl: ^0.17.0
   pin_code_fields: ^7.3.0
+  expandable: ^5.0.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -57,7 +58,7 @@ flutter_icons:
 
 flutter_native_splash:
   color: "#E5E5E5"
-  image: "assets/logo_splash.png"
+  image: "assets/logo.png"
   android: true
   ios: true
   # android_gravity: fill

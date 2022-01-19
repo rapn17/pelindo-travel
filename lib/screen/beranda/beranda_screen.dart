@@ -3,7 +3,6 @@ import 'package:pelindo_travel/app_color.dart';
 import 'package:pelindo_travel/screen/beranda/component/berita_widget.dart';
 import 'package:pelindo_travel/size_config.dart';
 import 'package:intl/intl.dart';
-import 'package:intl/date_symbol_data_local.dart';
 
 class BerandaScreen extends StatefulWidget {
   const BerandaScreen({Key? key}) : super(key: key);
