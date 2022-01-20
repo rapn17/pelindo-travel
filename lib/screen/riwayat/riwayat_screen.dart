@@ -1,7 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:pelindo_travel/size_config.dart';
+import 'package:pelindo_travel/screen/riwayat/component/body_empty_riwayat.dart';
+import 'package:pelindo_travel/screen/riwayat/component/body_have_riwayat.dart';
 
 class RiwayatScreen extends StatefulWidget {
   const RiwayatScreen({Key? key}) : super(key: key);
@@ -11,6 +12,13 @@ class RiwayatScreen extends StatefulWidget {
 }
 
 class _RiwayatScreenState extends State<RiwayatScreen> {
+  bool haveRiwayat = true;
+
+  var body = [
+    BodyEmptyRiwayat(),
+    BodyHaveRiwayat(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,46 +47,7 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
         ),
         elevation: 0,
       ),
-      body: Container(
-        height: SizeConfig.screenHeight!,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Spacer(),
-            Container(
-              height: getProportionateScreenHeight(304),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.contain,
-                  image: AssetImage('assets/images/riwayat_kosong.png'),
-                ),
-              ),
-            ),
-            Spacer(),
-            Text(
-              'OOPPSS!!!',
-              style: TextStyle(
-                color: Color(0xff333E63),
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-                fontFamily: 'Poppins',
-              ),
-            ),
-            VerticalSpacing(),
-            Text(
-              'Anda belum memiliki Tiket, silahkan \nmelakukan pemesanan tiket terdahulu!!',
-              style: TextStyle(
-                color: Color(0xff333E63),
-                fontSize: 12,
-                fontWeight: FontWeight.w700,
-                fontFamily: 'Poppins',
-                height: 1.9,
-              ),
-            ),
-            Spacer(flex: 2),
-          ],
-        ),
-      ),
+      body: haveRiwayat ? body[1] : body[0],
     );
   }
 }

@@ -22,14 +22,14 @@ class BodyHaveTiket extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(bottom: 8),
               child: Text(
-                  'Informasi Kapal',
-                  style: TextStyle(
-                    color: Color(0xff88879C),
-                    fontSize: 17,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: 'Roboto',
-                  ),
+                'Informasi Kapal',
+                style: TextStyle(
+                  color: Color(0xff88879C),
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Roboto',
                 ),
+              ),
             ),
             InformasiKapalWidget(
               kotaAsal: 'Surabaya',
@@ -57,13 +57,17 @@ class BodyHaveTiket extends StatelessWidget {
               namaPenumpang: 'Sri Rahayu',
               jenisIdentitas: 'KTP',
               nomorIdentitas: '3589893487890002',
-              press: () {},
+              press: () {
+                Navigator.pushNamed(context, '/detail-tiket');
+              },
             ),
             DataPenumpangWidget(
               namaPenumpang: 'Sri Rahayu',
               jenisIdentitas: 'KTP',
               nomorIdentitas: '3589893487890002',
-              press: () {},
+              press: () {
+                Navigator.pushNamed(context, '/detail-tiket');
+              },
             ),
             DataPenumpangWidget(
               namaPenumpang: 'Bayu',

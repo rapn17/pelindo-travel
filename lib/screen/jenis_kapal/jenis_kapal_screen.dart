@@ -44,6 +44,9 @@ class _JenisKapalScreenState extends State<JenisKapalScreen> {
           ),
         ),
         elevation: 0,
+        // actions: [
+        //   IconButton(onPressed: () {}, icon: Icon(Icons.list_rounded, color: Color(0xff181D2D),),),
+        // ],
       ),
       body: Container(
         margin:
