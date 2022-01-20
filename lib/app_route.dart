@@ -13,6 +13,7 @@ import 'package:pelindo_travel/screen/profil/profil_screen.dart';
 import 'package:pelindo_travel/screen/register/register_screen.dart';
 import 'package:pelindo_travel/screen/ringkasan_pemesanan/ringkasan_pemesanan_screen.dart';
 import 'package:pelindo_travel/screen/riwayat/riwayat_screen.dart';
+import 'package:pelindo_travel/screen/tiket/detail_tiket_screen.dart';
 
 String initialRoute = '/';
 
@@ -117,6 +118,13 @@ Route<dynamic>? appRoute(RouteSettings settings) {
         settings: settings,
         builder: (context) {
           return const RingkasanPesananScreen();
+        },
+      );
+    case '/detail-tiket':
+      return MaterialPageRoute(
+        settings: settings,
+        builder: (context) {
+          return const DetailTiketScreen();
         },
       );
     default:

@@ -1,7 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:pelindo_travel/size_config.dart';
+import 'package:pelindo_travel/screen/tiket/component/body_empty_tiket.dart';
+import 'package:pelindo_travel/screen/tiket/component/body_have_tiket.dart';
 
 import '../../app_color.dart';
 
@@ -13,6 +14,13 @@ class TiketScreen extends StatefulWidget {
 }
 
 class _TiketScreenState extends State<TiketScreen> {
+  bool haveTiket= true;
+
+  var body = [
+    BodyEmptyTiket(),
+    BodyHaveTiket(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,46 +40,7 @@ class _TiketScreenState extends State<TiketScreen> {
         elevation: 0,
         centerTitle: true,
       ),
-      body: Container(
-        height: SizeConfig.screenHeight!,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Spacer(),
-            Container(
-              height: getProportionateScreenHeight(304),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage('assets/images/tiket_kosong.png'),
-                ),
-              ),
-            ),
-            Spacer(),
-            Text(
-              'OOPPSS!!!',
-              style: TextStyle(
-                color: Color(0xff333E63),
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-                fontFamily: 'Poppins',
-              ),
-            ),
-            VerticalSpacing(),
-            Text(
-              'Anda belum memiliki Tiket, silahkan \nmelakukan pemesanan tiket terdahulu!!',
-              style: TextStyle(
-                color: Color(0xff333E63),
-                fontSize: 12,
-                fontWeight: FontWeight.w700,
-                fontFamily: 'Poppins',
-                height: 1.9,
-              ),
-            ),
-            Spacer(flex: 2),
-          ],
-        ),
-      ),
+      body: haveTiket? body[1] : body[0],
     );
   }
 }

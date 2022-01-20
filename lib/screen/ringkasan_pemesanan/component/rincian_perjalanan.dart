@@ -100,7 +100,7 @@ class RincianPerjalanan extends StatelessWidget {
             Expanded(
               child: Container(
                 child: Text(
-                  ': EK1-A',
+                  ': $kelasTiket',
                   style: TextStyle(
                     color: Color(0xff999999),
                     fontSize: 13,
@@ -130,7 +130,7 @@ class RincianPerjalanan extends StatelessWidget {
             Expanded(
               child: Container(
                 child: Text(
-                  ': 1 Orang',
+                  ': $jumlahPenumpang Orang',
                   style: TextStyle(
                     color: Color(0xff999999),
                     fontSize: 13,
