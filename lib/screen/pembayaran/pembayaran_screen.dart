@@ -11,6 +11,7 @@ class PembayaranScreen extends StatefulWidget {
 }
 
 class _PembayaranScreenState extends State<PembayaranScreen> {
+  bool isTerbayar = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,6 +77,7 @@ class _PembayaranScreenState extends State<PembayaranScreen> {
                             image: AssetImage('assets/images/bni.png'),
                           ),
                           Container(
+                            width: double.infinity,
                             margin: EdgeInsets.only(top: 10, right: 4),
                             padding:
                                 EdgeInsets.only(left: 5, top: 10, bottom: 15),
@@ -88,55 +90,48 @@ class _PembayaranScreenState extends State<PembayaranScreen> {
                             ),
                             child: Column(
                               children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      width: 60,
-                                      child: Text(
-                                        'No.Rekening ',
-                                        style: TextStyle(
-                                          color: Color(0xff047C99),
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w700,
-                                          fontFamily: 'Arial',
-                                        ),
-                                      ),
+                                Container(
+                                  width: 60,
+                                  child: Text(
+                                    'No.Rekening ',
+                                    style: TextStyle(
+                                      color: Color(0xff047C99),
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w700,
+                                      fontFamily: 'Arial',
                                     ),
-                                    Text(
-                                      ': 1260272061',
-                                      style: TextStyle(
-                                        color: Color(0xff047C99),
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w700,
-                                        fontFamily: 'Arial',
-                                      ),
-                                    ),
-                                  ],
+                                  ),
                                 ),
-                                Row(
-                                  children: [
-                                    Container(
-                                      width: 60,
-                                      child: Text(
-                                        'Atas Nama ',
-                                        style: TextStyle(
-                                          color: Color(0xff047C99),
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w700,
-                                          fontFamily: 'Arial',
-                                        ),
-                                      ),
+                                Text(
+                                  '1260272061',
+                                  style: TextStyle(
+                                    color: Color(0xff047C99),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: 'Arial',
+                                  ),
+                                ),
+                                SizedBox(height: 10),
+                                Container(
+                                  width: 60,
+                                  child: Text(
+                                    'Atas Nama ',
+                                    style: TextStyle(
+                                      color: Color(0xff047C99),
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w700,
+                                      fontFamily: 'Arial',
                                     ),
-                                    Text(
-                                      ': Putri Srirahayu',
-                                      style: TextStyle(
-                                        color: Color(0xff047C99),
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w700,
-                                        fontFamily: 'Arial',
-                                      ),
-                                    ),
-                                  ],
+                                  ),
+                                ),
+                                Text(
+                                  'Putri Srirahayu',
+                                  style: TextStyle(
+                                    color: Color(0xff047C99),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: 'Arial',
+                                  ),
                                 ),
                               ],
                             ),
@@ -153,6 +148,7 @@ class _PembayaranScreenState extends State<PembayaranScreen> {
                             image: AssetImage('assets/images/bri.png'),
                           ),
                           Container(
+                            width: double.infinity,
                             margin: EdgeInsets.only(top: 10, left: 4),
                             padding:
                                 EdgeInsets.only(left: 5, top: 10, bottom: 15),
@@ -165,55 +161,48 @@ class _PembayaranScreenState extends State<PembayaranScreen> {
                             ),
                             child: Column(
                               children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      width: 60,
-                                      child: Text(
-                                        'No.Rekening ',
-                                        style: TextStyle(
-                                          color: Color(0xff047C99),
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w700,
-                                          fontFamily: 'Arial',
-                                        ),
-                                      ),
+                                Container(
+                                  width: 60,
+                                  child: Text(
+                                    'No.Rekening ',
+                                    style: TextStyle(
+                                      color: Color(0xff047C99),
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w700,
+                                      fontFamily: 'Arial',
                                     ),
-                                    Text(
-                                      ': 499201021147535',
-                                      style: TextStyle(
-                                        color: Color(0xff047C99),
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w700,
-                                        fontFamily: 'Arial',
-                                      ),
-                                    ),
-                                  ],
+                                  ),
                                 ),
-                                Row(
-                                  children: [
-                                    Container(
-                                      width: 60,
-                                      child: Text(
-                                        'Atas Nama ',
-                                        style: TextStyle(
-                                          color: Color(0xff047C99),
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w700,
-                                          fontFamily: 'Arial',
-                                        ),
-                                      ),
+                                Text(
+                                  '499201021147535',
+                                  style: TextStyle(
+                                    color: Color(0xff047C99),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: 'Arial',
+                                  ),
+                                ),
+                                SizedBox(height: 10),
+                                Container(
+                                  width: 60,
+                                  child: Text(
+                                    'Atas Nama ',
+                                    style: TextStyle(
+                                      color: Color(0xff047C99),
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w700,
+                                      fontFamily: 'Arial',
                                     ),
-                                    Text(
-                                      ': Putri Srirahayu',
-                                      style: TextStyle(
-                                        color: Color(0xff047C99),
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w700,
-                                        fontFamily: 'Arial',
-                                      ),
-                                    ),
-                                  ],
+                                  ),
+                                ),
+                                Text(
+                                  'Putri Srirahayu',
+                                  style: TextStyle(
+                                    color: Color(0xff047C99),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: 'Arial',
+                                  ),
                                 ),
                               ],
                             ),
@@ -478,6 +467,7 @@ class _PembayaranScreenState extends State<PembayaranScreen> {
               ),
               VerticalSpacing(),
               RichText(
+                textAlign: TextAlign.center,
                 text: TextSpan(
                   children: [
                     TextSpan(
@@ -510,49 +500,105 @@ class _PembayaranScreenState extends State<PembayaranScreen> {
                   ],
                 ),
               ),
-              // Text(
-              //   'Mohon Melakukan Pembayaran Sebesar Rp 960.000 sebelum tanggal 16 oktober 2021 09.23 WIB',
-              //   style: TextStyle(
-              //       color: Color(0xffF35320),
-              //       fontSize: 12,
-              //       fontWeight: FontWeight.w500,
-              //       fontFamily: 'Poppins',
-              //       height: 1.9),
-              //   textAlign: TextAlign.center,
-              // ),
-              Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.only(top: 20, bottom: 20),
-                child: TextButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return BatalmodalDialog();
-                      },
-                    );
-                  },
-                  child: Container(
-                    height: 50,
-                    width: 250,
-                    decoration: BoxDecoration(
-                      color: Color(0xff979797).withOpacity(0.57),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'BATALKAN PESANAN',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 11,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: 'Arial',
+              isTerbayar
+                  ? Container(
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.only(top: 20, bottom: 20),
+                      child: TextButton(
+                        onPressed: () {
+                        },
+                        child: Container(
+                          height: 50,
+                          width: 250,
+                          decoration: BoxDecoration(
+                            color: colorPrimary,
+                            // Color(0xff979797).withOpacity(0.57),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'TIKET',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w700,
+                                fontFamily: 'Arial',
+                              ),
+                            ),
+                          ),
                         ),
                       ),
+                    )
+                  : Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.only(top: 20, bottom: 20),
+                            child: TextButton(
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return BatalmodalDialog();
+                                  },
+                                );
+                              },
+                              child: Container(
+                                height: 50,
+                                width: 250,
+                                decoration: BoxDecoration(
+                                  color:
+                                      // colorPrimary,
+                                      Color(0xff979797).withOpacity(0.57),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'BATALKAN',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                      fontFamily: 'Arial',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.only(top: 20, bottom: 20),
+                            child: TextButton(
+                              onPressed: () {},
+                              child: Container(
+                                height: 50,
+                                width: 250,
+                                decoration: BoxDecoration(
+                                  color: colorPrimary,
+                                  // Color(0xff979797).withOpacity(0.57),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'Upload Bukti \nPembayaran',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                      fontFamily: 'Arial',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ),
-              ),
             ],
           ),
         ),

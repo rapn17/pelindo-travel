@@ -11,6 +11,7 @@ import 'package:pelindo_travel/screen/pembayaran/pembayaran_screen.dart';
 import 'package:pelindo_travel/screen/pemesanan/pemesanan_screen.dart';
 import 'package:pelindo_travel/screen/profil/profil_screen.dart';
 import 'package:pelindo_travel/screen/register/register_screen.dart';
+import 'package:pelindo_travel/screen/ringkasan_pemesanan/ringkasan_pemesanan_screen.dart';
 import 'package:pelindo_travel/screen/riwayat/riwayat_screen.dart';
 
 String initialRoute = '/';
@@ -78,7 +79,7 @@ Route<dynamic>? appRoute(RouteSettings settings) {
       return MaterialPageRoute(
         settings: settings,
         builder: (context) {
-          final args = settings.arguments as InputPenumpangScreen;
+          // final args = settings.arguments as InputPenumpangScreen;
           return InputPenumpangScreen();
         },
       );
@@ -109,6 +110,13 @@ Route<dynamic>? appRoute(RouteSettings settings) {
         builder: (context) {
           final args = settings.arguments as FormINputDataPenumpang;
           return FormINputDataPenumpang(isDewasa: args.isDewasa,);
+        },
+      );
+    case '/ringkasan-pemesanan':
+      return MaterialPageRoute(
+        settings: settings,
+        builder: (context) {
+          return const RingkasanPesananScreen();
         },
       );
     default:

@@ -113,7 +113,7 @@ class _InputPenumpangScreenState extends State<InputPenumpangScreen> {
                   right: getProportionateScreenWidth(20), bottom: 20),
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/pembayaran');
+                  Navigator.pushNamed(context, '/ringkasan-pemesanan');
                 },
                 child: Container(
                   height: 50,
