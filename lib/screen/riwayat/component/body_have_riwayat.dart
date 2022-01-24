@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pelindo_travel/screen/riwayat/component/kota_asal_tujuan_widget.dart';
 import 'package:pelindo_travel/screen/riwayat/component/modal_detail_pemesanan.dart';
 import 'package:pelindo_travel/screen/riwayat/component/riwayat_item_widget.dart';
 

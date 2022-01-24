@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import '../../app_color.dart';
-import 'dart:io';
 
 class DetailTiketScreen extends StatelessWidget {
   const DetailTiketScreen({Key? key}) : super(key: key);

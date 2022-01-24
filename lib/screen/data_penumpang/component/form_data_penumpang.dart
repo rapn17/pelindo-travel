@@ -283,7 +283,7 @@ class _FormINputDataPenumpangState extends State<FormINputDataPenumpang> {
                                   child: Container(
                                     width: 120,
                                     padding: EdgeInsets.symmetric(
-                                        horizontal: 8, vertical: 20),
+                                        horizontal: 8, vertical: 18),
                                     decoration: BoxDecoration(
                                       color: Colors.grey[100],
                                       border: Border(
@@ -365,6 +365,7 @@ class _FormINputDataPenumpangState extends State<FormINputDataPenumpang> {
                         ],
                       ),
                       VerticalSpacing(),
+                      if (widget.isDewasa!)
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

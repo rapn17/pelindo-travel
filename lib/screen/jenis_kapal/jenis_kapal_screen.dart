@@ -194,8 +194,7 @@ class _JenisKapalScreenState extends State<JenisKapalScreen> {
                                       context,
                                       '/pemesanan',
                                       arguments: PemesananScreen(
-                                          namaKapal:
-                                              'Kapal PELNI (KM. DOROLONGGA)'),
+                                          idKapal: 1),
                                     );
                                   },
                                 ),
@@ -335,8 +334,7 @@ class _JenisKapalScreenState extends State<JenisKapalScreen> {
                                         context,
                                         '/pemesanan',
                                         arguments: PemesananScreen(
-                                            namaKapal:
-                                                'Kapal PELNI (KM. DOROLONGGA)'),
+                                            idKapal: 2),
                                       );
                                     },
                                   ),

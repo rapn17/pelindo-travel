@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pelindo_travel/screen/pemesanan/component/jumlah_tiket_field.dart';
+import 'package:pelindo_travel/screen/pemesanan/component/modal_kelas_kapal.dart';
+import 'package:pelindo_travel/screen/pemesanan/component/modal_pilih_kendaraan.dart';
 import 'package:pelindo_travel/size_config.dart';
 
 import '../../app_color.dart';
 
 class PemesananScreen extends StatefulWidget {
-  final String namaKapal;
-  const PemesananScreen({Key? key, required this.namaKapal}) : super(key: key);
+  final idKapal;
+  const PemesananScreen({Key? key, required this.idKapal}) : super(key: key);
 
   @override
   _PemesananScreenState createState() => _PemesananScreenState();
@@ -15,6 +17,135 @@ class PemesananScreen extends StatefulWidget {
 class _PemesananScreenState extends State<PemesananScreen> {
   TextEditingController _jmlDewasa = TextEditingController(text: '0');
   TextEditingController _jmlBayi = TextEditingController(text: '0');
+
+  String? namaKapal;
+  var kapalItem;
+  String? namaKelas = 'EK - A';
+  var hargaKelasBayi = 80000;
+  var hargaKelasDewasa = 800000;
+  List? kelasItem;
+  List? selectedKelas;
+  String? namaKendaraan = 'Sepeda';
+  var hargaKendaraan = 0;
+  List? kendaraanItem;
+  // var selectedKendaraan;
+
+  var allKapal = [
+    {
+      "idKapal": 1,
+      "type": 1,
+      "namaType": 'Kapal PELNI',
+      "namaKapal": '(KM. DOROLONGGA)',
+    },
+    {
+      "idKapal": 2,
+      "type": 2,
+      "namaType": 'Kapal Dharma Lautan Utama',
+      "namaKapal": '(KM. Dharma Kencana 7)',
+    },
+  ];
+
+  var kelasPelni = [
+    {
+      "namaKelas": "EK-A",
+      "bayi": 80000,
+      "dewasa": 800000,
+    },
+    {
+      "namaKelas": "EK-B",
+      "bayi": 60000,
+      "dewasa": 500000,
+    },
+    {
+      "namaKelas": "EK-E",
+      "bayi": 32000,
+      "dewasa": 149000,
+    },
+  ];
+
+  var kelasDlu = [
+    {
+      "namaKelas": "VIP",
+      "bayi": 75000,
+      "dewasa": 460000,
+    },
+    {
+      "namaKelas": "1",
+      "bayi": 65000,
+      "dewasa": 410000,
+    },
+    {
+      "namaKelas": "2",
+      "bayi": 65000,
+      "dewasa": 360000,
+    },
+    {
+      "namaKelas": "3",
+      "bayi": 60000,
+      "dewasa": 320000,
+    }
+  ];
+
+  var allKendaraan = [
+    {
+      "namaKendaraan": "Sepeda",
+      "harga": 115000,
+    },
+    {
+      "namaKendaraan": "Sepeda Motor 2.A (s.d 249CC)",
+      "harga": 500000,
+    },
+    {
+      "namaKendaraan": "Truk Sedang 4.B - Kosong",
+      "harga": 3440000,
+    },
+    {
+      "namaKendaraan": "Kend. Kecil 3.A (s.d 2000CC)",
+      "harga": 1770000,
+    },
+    {
+      "namaKendaraan": "Kend. Kecil 3.B (2001CC ke Atas)",
+      "harga": 3000000,
+    },
+    {
+      "namaKendaraan": "Truk Sedang 4.B - Kosong",
+      "harga": 3440000,
+    },
+  ];
+
+  _getKapalItem(idKapal) {
+    setState(() {
+      if (idKapal == 1) {
+        kapalItem = allKapal[0];
+        kelasItem = kelasPelni;
+        kendaraanItem = [];
+      } else {
+        kapalItem = allKapal[1];
+        kelasItem = kelasDlu;
+        kendaraanItem = allKendaraan;
+        hargaKendaraan = 115000;
+      }
+      namaKapal = kapalItem['namaType'] + ' ' + kapalItem['namaKapal'];
+    });
+  }
+
+  refresh() {
+    setState(() {});
+  }
+
+  getTotalHarga() {
+    var totalHarga = (hargaKelasDewasa * int.parse(_jmlDewasa.text)) +
+        (hargaKelasBayi * int.parse(_jmlBayi.text)) +
+        hargaKendaraan;
+
+    return totalHarga.toString();
+  }
+
+  @override
+  void initState() {
+    _getKapalItem(widget.idKapal);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +214,7 @@ class _PemesananScreenState extends State<PemesananScreen> {
                       ],
                     ),
                     child: Text(
-                      widget.namaKapal,
+                      namaKapal.toString(),
                       style: TextStyle(
                         color: Color(0xff59597C),
                         fontSize: 13,
@@ -91,6 +222,7 @@ class _PemesananScreenState extends State<PemesananScreen> {
                         fontFamily: 'Poppins',
                       ),
                       overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
                     ),
                   ),
                   SizedBox(height: 10),
@@ -116,6 +248,7 @@ class _PemesananScreenState extends State<PemesananScreen> {
                               padding: EdgeInsets.only(right: 15),
                               child: JumlahTiketField(
                                 textController: _jmlDewasa,
+                                refreshState: refresh,
                               ),
                             ),
                           ],
@@ -140,6 +273,7 @@ class _PemesananScreenState extends State<PemesananScreen> {
                               padding: EdgeInsets.only(left: 15),
                               child: JumlahTiketField(
                                 textController: _jmlBayi,
+                                refreshState: refresh,
                               ),
                             ),
                           ],
@@ -160,39 +294,51 @@ class _PemesananScreenState extends State<PemesananScreen> {
                       ),
                     ),
                   ),
-                  Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Color(0xffE8E8E8), width: 1),
-                      borderRadius: BorderRadius.circular(8),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          blurRadius: 5,
-                          offset: Offset(0, 5),
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Pilih Jenis Kelas Tiket',
-                          style: TextStyle(
-                            color: Color(0xff88879C),
-                            fontSize: 13,
-                            fontWeight: FontWeight.w700,
-                            fontFamily: 'Poppins',
+                  InkWell(
+                    onTap: () {
+                      showModalBottomSheet(
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        context: context,
+                        builder: (context) {
+                          return buildModalKelasKapal(context, kelasItem);
+                        },
+                      );
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Color(0xffE8E8E8), width: 1),
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            blurRadius: 5,
+                            offset: Offset(0, 5),
                           ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        Icon(
-                          Icons.keyboard_arrow_down,
-                          color: Color(0xff88879C),
-                        ),
-                      ],
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Pilih Jenis Kelas Tiket',
+                            style: TextStyle(
+                              color: Color(0xff88879C),
+                              fontSize: 13,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: 'Poppins',
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          Icon(
+                            Icons.keyboard_arrow_down,
+                            color: Color(0xff88879C),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(height: 10),
@@ -208,39 +354,82 @@ class _PemesananScreenState extends State<PemesananScreen> {
                       ),
                     ),
                   ),
-                  Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Color(0xffE8E8E8), width: 1),
-                      borderRadius: BorderRadius.circular(8),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          blurRadius: 5,
-                          offset: Offset(0, 5),
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Pilih Jenis Kelas Kendaraan',
-                          style: TextStyle(
-                            color: Color(0xff88879C),
-                            fontSize: 13,
-                            fontWeight: FontWeight.w700,
-                            fontFamily: 'Poppins',
+                  InkWell(
+                    onTap: () {
+                      if (kendaraanItem!.length != 0) {
+                        showModalBottomSheet(
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          context: context,
+                          builder: (context) {
+                            return buildModalKendaraan(context, kendaraanItem);
+                          },
+                        );
+                      }
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Color(0xffE8E8E8), width: 1),
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            blurRadius: 5,
+                            offset: Offset(0, 5),
                           ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        Icon(
-                          Icons.keyboard_arrow_down,
-                          color: Color(0xff88879C),
-                        ),
-                      ],
+                        ],
+                      ),
+                      child: kendaraanItem!.length != 0
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Pilih Jenis Kelas Kendaraan',
+                                  style: TextStyle(
+                                    color: Color(0xff88879C),
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: 'Poppins',
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                Icon(
+                                  Icons.keyboard_arrow_down,
+                                  color: Color(0xff88879C),
+                                ),
+                              ],
+                            )
+                          : Row(
+                              children: [
+                                Container(
+                                  width: 15,
+                                  height: 15,
+                                  decoration: BoxDecoration(
+                                    // shape: BoxShape.circle,
+                                    // border: Border.all(
+                                    //     color: Color(0xffCCD2E3), width: 2),
+                                    image: DecorationImage(
+                                      // fit: BoxFit.fill,
+                                      image:
+                                          AssetImage('assets/icons/info.png'),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 5),
+                                Text(
+                                  'Jenis  Kendaraan pada Kapal ini tidak tersedia ',
+                                  style: TextStyle(
+                                    color: Color(0xff88879C),
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: 'Poppins',
+                                  ),
+                                )
+                              ],
+                            ),
                     ),
                   ),
                   VerticalSpacing(),
@@ -292,7 +481,7 @@ class _PemesananScreenState extends State<PemesananScreen> {
                           flex: 1,
                           child: Center(
                             child: Text(
-                              '1',
+                              _jmlDewasa.text,
                               style: TextStyle(
                                 color: Color(0xff88879C),
                                 fontSize: 13,
@@ -306,7 +495,12 @@ class _PemesananScreenState extends State<PemesananScreen> {
                         Expanded(
                           flex: 2,
                           child: Text(
-                            'Rp -',
+                            _jmlDewasa.text == '0'
+                                ? 'Rp -'
+                                : 'Rp ' +
+                                    (int.parse(_jmlDewasa.text) *
+                                            hargaKelasDewasa)
+                                        .toString(),
                             style: TextStyle(
                               color: Color(0xff88879C),
                               fontSize: 13,
@@ -355,7 +549,7 @@ class _PemesananScreenState extends State<PemesananScreen> {
                           flex: 1,
                           child: Center(
                             child: Text(
-                              '1',
+                              _jmlBayi.text,
                               style: TextStyle(
                                 color: Color(0xff88879C),
                                 fontSize: 13,
@@ -369,7 +563,11 @@ class _PemesananScreenState extends State<PemesananScreen> {
                         Expanded(
                           flex: 2,
                           child: Text(
-                            'Rp -',
+                            _jmlBayi.text == '0'
+                                ? 'Rp -'
+                                : 'Rp ' +
+                                    (int.parse(_jmlBayi.text) * hargaKelasBayi)
+                                        .toString(),
                             style: TextStyle(
                               color: Color(0xff88879C),
                               fontSize: 13,
@@ -432,7 +630,9 @@ class _PemesananScreenState extends State<PemesananScreen> {
                         Expanded(
                           flex: 2,
                           child: Text(
-                            'Rp -',
+                            hargaKendaraan == 0
+                                ? 'Rp -'
+                                : 'Rp ' + hargaKendaraan.toString(),
                             style: TextStyle(
                               color: Color(0xff88879C),
                               fontSize: 13,
@@ -484,7 +684,7 @@ class _PemesananScreenState extends State<PemesananScreen> {
                         Expanded(
                           flex: 2,
                           child: Text(
-                            'Rp -',
+                            'Rp ' + getTotalHarga(),
                             style: TextStyle(
                               color: Color(0xff88879C),
                               fontSize: 13,
@@ -533,6 +733,29 @@ class _PemesananScreenState extends State<PemesananScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget buildModalKelasKapal(context, kelasItem) {
+    return makeDismissible(
+      context,
+      child: ModalKelasKapal(
+        kelasItem: kelasItem,
+        // selectKelasTiket: refresh,
+      ),
+    );
+  }
+
+  Widget buildModalKendaraan(context, kendaraanItem) {
+    return makeDismissible(context,
+        child: ModalPilihKendaraan(kendaraanItem: kendaraanItem));
+  }
+
+  Widget makeDismissible(context, {required Widget child}) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () => Navigator.of(context).pop(),
+      child: GestureDetector(onTap: () {}, child: child),
     );
   }
 }

@@ -73,7 +73,7 @@ Route<dynamic>? appRoute(RouteSettings settings) {
         settings: settings,
         builder: (context) {
           final args = settings.arguments as PemesananScreen;
-          return PemesananScreen(namaKapal: args.namaKapal);
+          return PemesananScreen(idKapal: args.idKapal);
         },
       );
     case '/input-penumpang':

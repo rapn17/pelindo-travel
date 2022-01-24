@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class JumlahTiketField extends StatefulWidget {
   TextEditingController textController;
-  JumlahTiketField({ Key? key, required this.textController }) : super(key: key);
+  Function() refreshState;
+  JumlahTiketField({ Key? key, required this.textController, 
+  required this.refreshState
+  }) : super(key: key);
 
   @override
   _JumlahTiketFieldState createState() => _JumlahTiketFieldState();
@@ -38,6 +41,7 @@ class _JumlahTiketFieldState extends State<JumlahTiketField> {
                 if (jml >= 1) {
                   var newjml = jml - 1;
                   widget.textController.text = newjml.toString();
+                  widget.refreshState();
                 }
               });
             },
@@ -54,6 +58,7 @@ class _JumlahTiketFieldState extends State<JumlahTiketField> {
           ),
           Expanded(
             child: TextField(
+              enabled: false,
               controller: widget.textController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
@@ -62,6 +67,7 @@ class _JumlahTiketFieldState extends State<JumlahTiketField> {
                 border: InputBorder.none,
               ),
               textAlign: TextAlign.center,
+              // onChanged: widget.refreshState(),
             ),
           ),
           GestureDetector(
@@ -70,6 +76,7 @@ class _JumlahTiketFieldState extends State<JumlahTiketField> {
                 var jml = int.parse(widget.textController.text);
                 var newjml = jml + 1;
                 widget.textController.text = newjml.toString();
+                widget.refreshState();
               });
             },
             child: Container(

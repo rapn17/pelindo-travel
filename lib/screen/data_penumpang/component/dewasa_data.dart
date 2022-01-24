@@ -1,5 +1,6 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:pelindo_travel/screen/data_penumpang/component/data_penumpang_item.dart';
 import 'package:pelindo_travel/screen/data_penumpang/component/form_data_penumpang.dart';
 
 import '../../../app_color.dart';
@@ -100,8 +101,16 @@ class DewasaData extends StatelessWidget {
                     child: Column(
                       children: [
                         Divider(),
-                        DewasaDataItem(),
-                        DewasaDataItem(),
+                        DataPenumpangItem(
+                          nama: 'Sri Rahayu',
+                          jenisIdentitas: 'KTP',
+                          noIdentitas: '3589893405890002',
+                        ),
+                        DataPenumpangItem(
+                          nama: 'Sri Rahayu',
+                          jenisIdentitas: 'KTP',
+                          noIdentitas: '3589893405890002',
+                        ),
                         InkWell(
                           onTap: () {
                             Navigator.pushNamed(
@@ -158,103 +167,103 @@ class DewasaData extends StatelessWidget {
   }
 }
 
-class DewasaDataItem extends StatelessWidget {
-  const DewasaDataItem({
-    Key? key,
-  }) : super(key: key);
+// class DewasaDataItem extends StatelessWidget {
+//   const DewasaDataItem({
+//     Key? key,
+//   }) : super(key: key);
 
-  void menuSelection(String value) {
-    switch (value) {
-      case 'Edit':
-        //
-        break;
-      case 'Delete':
-        //
-        break;
-    }
-  }
+//   void menuSelection(String value) {
+//     switch (value) {
+//       case 'Edit':
+//         //
+//         break;
+//       case 'Delete':
+//         //
+//         break;
+//     }
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ListTile(
-          title: Row(
-            children: [
-              Container(
-                width: 50,
-                child: Text(
-                  'Nama',
-                  style: TextStyle(
-                    color: Color(0xff333E63),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: 'Arial',
-                  ),
-                ),
-              ),
-              Text(
-                ': Sri Rahayu',
-                style: TextStyle(
-                  color: Color(0xff333E63),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'Arial',
-                ),
-              ),
-            ],
-          ),
-          subtitle: Row(
-            children: [
-              Container(
-                width: 50,
-                child: Text(
-                  'KTP',
-                  style: TextStyle(
-                    color: Color(0xff333E63),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: 'Arial',
-                  ),
-                ),
-              ),
-              Text(
-                ': 3589893487890002',
-                style: TextStyle(
-                  color: Color(0xff333E63),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'Arial',
-                ),
-              ),
-            ],
-          ),
-          trailing: PopupMenuButton<String>(
-            padding: EdgeInsets.zero,
-            icon: Icon(Icons.edit),
-            onSelected: menuSelection,
-            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              const PopupMenuItem<String>(
-                value: 'Edit',
-                child: Text('Edit'),
-              ),
-              const PopupMenuItem<String>(
-                value: 'Hapus',
-                child: Text(
-                  'Hapus',
-                  style: TextStyle(color: Colors.red),
-                ),
-              ),
-            ],
-          ),
-          //   IconButton(
-          //     onPressed: () {},
-          //     icon: Icon(Icons.edit),
-          //   ),
-        ),
-        Divider(),
-      ],
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       crossAxisAlignment: CrossAxisAlignment.start,
+//       children: [
+//         ListTile(
+//           title: Row(
+//             children: [
+//               Container(
+//                 width: 50,
+//                 child: Text(
+//                   'Nama',
+//                   style: TextStyle(
+//                     color: Color(0xff333E63),
+//                     fontSize: 14,
+//                     fontWeight: FontWeight.w400,
+//                     fontFamily: 'Arial',
+//                   ),
+//                 ),
+//               ),
+//               Text(
+//                 ': Sri Rahayu',
+//                 style: TextStyle(
+//                   color: Color(0xff333E63),
+//                   fontSize: 14,
+//                   fontWeight: FontWeight.w400,
+//                   fontFamily: 'Arial',
+//                 ),
+//               ),
+//             ],
+//           ),
+//           subtitle: Row(
+//             children: [
+//               Container(
+//                 width: 50,
+//                 child: Text(
+//                   'KTP',
+//                   style: TextStyle(
+//                     color: Color(0xff333E63),
+//                     fontSize: 14,
+//                     fontWeight: FontWeight.w400,
+//                     fontFamily: 'Arial',
+//                   ),
+//                 ),
+//               ),
+//               Text(
+//                 ': 3589893487890002',
+//                 style: TextStyle(
+//                   color: Color(0xff333E63),
+//                   fontSize: 14,
+//                   fontWeight: FontWeight.w400,
+//                   fontFamily: 'Arial',
+//                 ),
+//               ),
+//             ],
+//           ),
+//           trailing: PopupMenuButton<String>(
+//             padding: EdgeInsets.zero,
+//             icon: Icon(Icons.edit),
+//             onSelected: menuSelection,
+//             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+//               const PopupMenuItem<String>(
+//                 value: 'Edit',
+//                 child: Text('Edit'),
+//               ),
+//               const PopupMenuItem<String>(
+//                 value: 'Hapus',
+//                 child: Text(
+//                   'Hapus',
+//                   style: TextStyle(color: Colors.red),
+//                 ),
+//               ),
+//             ],
+//           ),
+//           //   IconButton(
+//           //     onPressed: () {},
+//           //     icon: Icon(Icons.edit),
+//           //   ),
+//         ),
+//         Divider(),
+//       ],
+//     );
+//   }
+// }
