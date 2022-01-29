@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pelindo_travel/app_color.dart';
 import 'package:pelindo_travel/screen/onboard/component/splash_content.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardScreen extends StatefulWidget {
   const OnBoardScreen({Key? key}) : super(key: key);
@@ -27,6 +28,13 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
     },
     
   ];
+
+  
+  _setOnboardViewed() async {
+    int isViewed = 1;
+    SharedPreferences _prefs = await SharedPreferences.getInstance();
+    await _prefs.setInt('onBoard', isViewed);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +84,8 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           TextButton(
-                            onPressed: () {
+                            onPressed: () async {
+                              await _setOnboardViewed();
                               Navigator.pushNamed(context, '/home');
                             },
                             child: Container(
@@ -101,8 +110,9 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                             ),
                           ),
                           TextButton(
-                            onPressed: () {
+                            onPressed: () async {
                               if (currentPage == splashData.length - 1) {
+                                await _setOnboardViewed();
                                 Navigator.pushReplacementNamed(context, '/home');
                               }
                               _pageController.animateToPage(currentPage + 1,
